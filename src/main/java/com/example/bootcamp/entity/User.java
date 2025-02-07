@@ -40,6 +40,15 @@ public class User {
     @Column(name = "created_at")
     private LocalDateTime createdAt = LocalDateTime.now();
 
+    @Column(name = "age")
+    private Integer age;
+
+    @Column(name = "experience")
+    private Integer experience;
+
+    @Column(name = "description", length = 255)
+    private String description;
+
     //геттеры и сеттеры
 
     public Long getId() {
@@ -129,5 +138,26 @@ public class User {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public Integer getExperience() {
+        return experience;
+    }
+    public void setExperience(Integer experience) {
+        this.experience = experience;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

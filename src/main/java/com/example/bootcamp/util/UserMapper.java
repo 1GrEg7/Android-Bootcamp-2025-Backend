@@ -16,11 +16,14 @@ public class UserMapper {
         dto.setRole(user.getRole());
         dto.setStatus(user.getStatus());
         if (user.getVolunteerCenter() != null) {
-            //для входящих данных всё ещё можно установить ID центра
+            //для входящих данных устанавливаем ID центра
             dto.setVolunteerCenterId(user.getVolunteerCenter().getId());
             //для ответа – устанавливаем только название центра
             dto.setVolunteerCenter(user.getVolunteerCenter().getName());
         }
+        dto.setAge(user.getAge());
+        dto.setExperience(user.getExperience());
+        dto.setDescription(user.getDescription());
         return dto;
     }
 }

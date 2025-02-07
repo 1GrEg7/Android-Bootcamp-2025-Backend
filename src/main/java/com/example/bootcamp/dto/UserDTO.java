@@ -1,6 +1,5 @@
 package com.example.bootcamp.dto;
 
-import com.example.bootcamp.entity.VolunteerCenter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class UserDTO {
@@ -14,15 +13,20 @@ public class UserDTO {
     private String role;
     private String status;
 
-    //это поле используется при создании/обновлении (приеме данных)
+    //поле используется при создании/обновлении (приёме данных)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Long volunteerCenterId;
 
-    //это поле будет выводиться (только для чтения) и содержит название центра
+    //поле будет выводиться (только для чтения) и содержит название центра
     @JsonProperty(value = "volunteerCenter", access = JsonProperty.Access.READ_ONLY)
     private String volunteerCenter;
 
+    private Integer age;
+    private Integer experience;
+    private String description;
+
     //геттеры и сеттеры
+
     public long getId() {
         return id;
     }
@@ -100,5 +104,26 @@ public class UserDTO {
     }
     public void setVolunteerCenter(String volunteerCenter) {
         this.volunteerCenter = volunteerCenter;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public Integer getExperience() {
+        return experience;
+    }
+    public void setExperience(Integer experience) {
+        this.experience = experience;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

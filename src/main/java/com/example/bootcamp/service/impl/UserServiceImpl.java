@@ -56,6 +56,11 @@ public class UserServiceImpl implements UserService {
         user.setStatus(userDTO.getStatus());
         user.setVolunteerCenter(volunteerCenter);
 
+        //установка новых полей
+        user.setAge(userDTO.getAge());
+        user.setExperience(userDTO.getExperience());
+        user.setDescription(userDTO.getDescription());
+
         return UserMapper.convertToDto(userRepository.save(user));
     }
 
@@ -71,6 +76,11 @@ public class UserServiceImpl implements UserService {
         user.setAvatarUrl(userDTO.getAvatarUrl());
         user.setRole(userDTO.getRole());
         user.setStatus(userDTO.getStatus());
+
+        //новые поля 7 февраля 21-02
+        user.setAge(userDTO.getAge());
+        user.setExperience(userDTO.getExperience());
+        user.setDescription(userDTO.getDescription());
 
         if (userDTO.getVolunteerCenterId() != null) {
             VolunteerCenter volunteerCenter = volunteerCenterRepository.findById(userDTO.getVolunteerCenterId())
@@ -89,11 +99,11 @@ public class UserServiceImpl implements UserService {
     //новый метод для получения части пользователей
     @Override
     public List<UserDTO> getUsers(int offset, int limit) {
-        //получаем всех пользователей - отсортированных по id
+        //получаем всех пользователей — отсортированных по id
         List<User> allUsers = userRepository.findAll(Sort.by("id"));
         int total = allUsers.size();
 
-        //если offset больше или равен общему количеству пользователей - сбрасываем его в 0
+        //если offset больше или равен общему количеству пользователей — сбрасываем его в 0
         if (offset >= total) {
             offset = 0;
         }
