@@ -1,9 +1,7 @@
 package com.example.bootcamp.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -13,8 +11,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "username")
-    private String username;
+    // Новые поля для разделения имени
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "second_name")
+    private String secondName;
 
     @Column(name = "email", unique = true)
     private String email;
@@ -35,10 +37,6 @@ public class User {
     @JoinColumn(name = "volunteer_center_id", referencedColumnName = "id")
     private VolunteerCenter volunteerCenter;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "volunteerCenter", cascade = CascadeType.ALL)
-    private List<User> users;
-
     @Column(name = "created_at")
     private LocalDateTime createdAt = LocalDateTime.now();
 
@@ -52,14 +50,25 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    // firstName
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
+    // secondName
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+
+    // email
     public String getEmail() {
         return email;
     }
@@ -68,6 +77,7 @@ public class User {
         this.email = email;
     }
 
+    // phoneNumber
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -76,6 +86,7 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
+    // avatarUrl
     public String getAvatarUrl() {
         return avatarUrl;
     }
@@ -84,6 +95,7 @@ public class User {
         this.avatarUrl = avatarUrl;
     }
 
+    // role
     public String getRole() {
         return role;
     }
@@ -92,6 +104,7 @@ public class User {
         this.role = role;
     }
 
+    // status
     public String getStatus() {
         return status;
     }
@@ -100,6 +113,7 @@ public class User {
         this.status = status;
     }
 
+    // volunteerCenter
     public VolunteerCenter getVolunteerCenter() {
         return volunteerCenter;
     }
@@ -108,14 +122,7 @@ public class User {
         this.volunteerCenter = volunteerCenter;
     }
 
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-
+    // createdAt
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }

@@ -1,11 +1,10 @@
 package com.example.bootcamp.entity;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Data
 @Entity
 @Table(name = "volunteer_centers")
 public class VolunteerCenter {
@@ -23,36 +22,49 @@ public class VolunteerCenter {
     @Column(name = "created_at")
     private LocalDateTime createdAt = LocalDateTime.now();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "volunteerCenter")
     private List<User> users;
 
+    // Геттеры и сеттеры
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    //сеттер для id
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    //геттер для name
     public String getName() {
         return name;
     }
 
-    //сеттер для name
     public void setName(String name) {
         this.name = name;
     }
 
-    //геттер для location
     public String getLocation() {
         return location;
     }
 
-    //сеттер для location
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }

@@ -15,16 +15,17 @@
             <column name="id" type="INTEGER" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="username" type="VARCHAR(100)">
+            <!-- Новые колонки для имени -->
+            <column name="first_name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="second_name" type="VARCHAR(100)">
                 <constraints nullable="false"/>
             </column>
             <column name="email" type="VARCHAR(100)">
                 <constraints nullable="false" unique="true"/>
             </column>
             <column name="phone_number" type="VARCHAR(20)"/>
-            <!--            <column name="password_hash" type="VARCHAR(255)">-->
-            <!--                <constraints nullable="false"/>-->
-            <!--            </column>-->
             <column name="avatar_url" type="VARCHAR(255)"/>
             <column name="role" type="VARCHAR(50)">
                 <constraints nullable="false"/>
@@ -36,5 +37,4 @@
             </column>
         </createTable>
     </changeSet>
-
 </databaseChangeLog>

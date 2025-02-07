@@ -12,7 +12,6 @@ import com.example.bootcamp.util.UserMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,7 +20,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final VolunteerCenterRepository volunteerCenterRepository;
 
-    //конструктор с инъекцией зависимостей
+    // Конструктор с инъекцией зависимостей
     public UserServiceImpl(UserRepository userRepository, VolunteerCenterRepository volunteerCenterRepository) {
         this.userRepository = userRepository;
         this.volunteerCenterRepository = volunteerCenterRepository;
@@ -47,7 +46,8 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new VolunteerCenterNotFoundException("Volunteer Center not found!"));
 
         User user = new User();
-        user.setUsername(userDTO.getUsername());
+        user.setFirstName(userDTO.getFirstName());
+        user.setSecondName(userDTO.getSecondName());
         user.setEmail(userDTO.getEmail());
         user.setPhoneNumber(userDTO.getPhoneNumber());
         user.setAvatarUrl(userDTO.getAvatarUrl());
@@ -63,7 +63,8 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("User not found!"));
 
-        user.setUsername(userDTO.getUsername());
+        user.setFirstName(userDTO.getFirstName());
+        user.setSecondName(userDTO.getSecondName());
         user.setEmail(userDTO.getEmail());
         user.setPhoneNumber(userDTO.getPhoneNumber());
         user.setAvatarUrl(userDTO.getAvatarUrl());

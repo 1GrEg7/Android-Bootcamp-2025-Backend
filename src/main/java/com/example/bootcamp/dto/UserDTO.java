@@ -1,14 +1,12 @@
 package com.example.bootcamp.dto;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.Data;
 
 import com.example.bootcamp.entity.VolunteerCenter;
 
 public class UserDTO {
 
     private long id;
-    private String username;
+    private String firstName;
+    private String secondName;
     private String email;
     private String phoneNumber;
     private String avatarUrl;
@@ -16,6 +14,8 @@ public class UserDTO {
     private String status;
     private Long volunteerCenterId;
     private VolunteerCenter volunteerCenter;
+
+    // Геттеры и сеттеры
 
     public long getId() {
         return id;
@@ -25,14 +25,25 @@ public class UserDTO {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    // firstName
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
+    // secondName
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+
+    // email
     public String getEmail() {
         return email;
     }
@@ -41,6 +52,7 @@ public class UserDTO {
         this.email = email;
     }
 
+    // phoneNumber
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -49,6 +61,7 @@ public class UserDTO {
         this.phoneNumber = phoneNumber;
     }
 
+    // avatarUrl
     public String getAvatarUrl() {
         return avatarUrl;
     }
@@ -57,6 +70,7 @@ public class UserDTO {
         this.avatarUrl = avatarUrl;
     }
 
+    // role
     public String getRole() {
         return role;
     }
@@ -65,6 +79,7 @@ public class UserDTO {
         this.role = role;
     }
 
+    // status
     public String getStatus() {
         return status;
     }
@@ -73,14 +88,16 @@ public class UserDTO {
         this.status = status;
     }
 
+    // volunteerCenterId
     public Long getVolunteerCenterId() {
         return volunteerCenterId;
     }
 
-    public void setVolunteerCenterId(long volunteerCenterId) {
+    public void setVolunteerCenterId(Long volunteerCenterId) {
         this.volunteerCenterId = volunteerCenterId;
     }
 
+    // volunteerCenter
     public VolunteerCenter getVolunteerCenter() {
         return volunteerCenter;
     }
