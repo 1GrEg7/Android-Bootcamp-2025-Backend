@@ -16,9 +16,10 @@ public class MessageController {
     private MessageService messageService;
 
     @PostMapping("/send")
-    public Message sendMessage(@RequestParam Long userId, @RequestParam String content,
-                               @RequestParam Boolean isAdminMessage, @RequestParam Boolean isNotification) {
-        return messageService.sendMessage(userId, content, isAdminMessage, isNotification);
+    public Message sendMessage(@RequestParam Long userId,
+                               @RequestParam String content,
+                               @RequestParam Boolean isAdminMessage) {
+        return messageService.sendMessage(userId, content, isAdminMessage);
     }
 
     @GetMapping("/user/{userId}")

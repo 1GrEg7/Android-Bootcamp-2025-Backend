@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface MessageService {
-    Message sendMessage(Long userId, String content, Boolean isAdminMessage, Boolean isNotification);
+    Message sendMessage(Long userId, String content, Boolean isAdminMessage);
     List<Message> getMessagesByUserId(Long userId);
     List<Message> getMessagesByStatus(String status);
     Optional<Message> updateMessageStatus(Long messageId, String newStatus);

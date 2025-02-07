@@ -1,5 +1,6 @@
 package com.example.bootcamp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -34,6 +35,7 @@ public class User {
     @JoinColumn(name = "volunteer_center_id", referencedColumnName = "id")
     private VolunteerCenter volunteerCenter;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "volunteerCenter", cascade = CascadeType.ALL)
     private List<User> users;
 
@@ -41,6 +43,7 @@ public class User {
     private LocalDateTime createdAt = LocalDateTime.now();
 
     // Геттеры и сеттеры
+
     public Long getId() {
         return id;
     }

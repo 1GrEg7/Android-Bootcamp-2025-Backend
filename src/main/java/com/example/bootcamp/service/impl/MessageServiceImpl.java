@@ -1,8 +1,11 @@
 package com.example.bootcamp.service.impl;
 
 import com.example.bootcamp.entity.Message;
+import com.example.bootcamp.entity.User;
 import com.example.bootcamp.exception.MessageNotFoundException;
+import com.example.bootcamp.exception.UserNotFoundException;
 import com.example.bootcamp.repository.MessageRepository;
+import com.example.bootcamp.repository.UserRepository;
 import com.example.bootcamp.service.MessageService;
 import com.example.bootcamp.util.MessageMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +21,20 @@ public class MessageServiceImpl implements MessageService {
     @Autowired
     private MessageRepository messageRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @Override
-    public Message sendMessage(Long userId, String content, Boolean isAdminMessage, Boolean isNotification) {
+    public Message sendMessage(Long userId, String content, Boolean isAdminMessage) {
+        Optional<User> user = userRepository.findById(userId);
+        if (!user.isPresent()) {
+            throw new UserNotFoundException("User not found with ID: " + userId);
+        }
+
         Message message = new Message();
-//        message.setUserId(userId);
+        message.setUser(user.get());
         message.setContent(content);
         message.setIsAdminMessage(isAdminMessage);
-        message.setIsNotification(isNotification);
         message.setStatus("sent");
         message.setCreatedAt(LocalDateTime.now());
 

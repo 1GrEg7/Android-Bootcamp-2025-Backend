@@ -9,5 +9,4 @@ public class MessageMapper {
     public static boolean isValidStatus(String status) {
         return VALID_STATUSES.contains(status);
     }
-
 }

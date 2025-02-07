@@ -4,13 +4,8 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-    <changeSet id="2025-01-31--0002-messages" author="dgold">
-        <preConditions onFail="MARK_RAN">
-            <not>
-                <tableExists tableName="messages"/>
-            </not>
-        </preConditions>
-
+    <changeSet id="2025-01-31--0002-create-messages" author="dgold">
+        <preConditions onFail="MARK_RAN"/>
         <createTable tableName="messages">
             <column name="id" type="INTEGER" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
@@ -21,8 +16,7 @@
             <column name="content" type="VARCHAR(10000)">
                 <constraints nullable="false"/>
             </column>
-
-            <column name="is_admin_message" type="BOOLEAN"/>
+            <column name="is_admin_message" type="BOOLEAN" defaultValue="false"/>
             <column name="status" type="VARCHAR(50)"/>
             <column name="created_at" type="TIMESTAMP"/>
         </createTable>

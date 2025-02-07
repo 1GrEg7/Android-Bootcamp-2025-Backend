@@ -21,16 +21,13 @@ public class Message {
     @Column(name = "is_admin_message", nullable = false)
     private Boolean isAdminMessage;
 
-    @Column(name = "is_notification", nullable = false)
-    private Boolean isNotification;
-
     @Column(name = "status", nullable = false)
-    private String status;  // 'sent', 'failed', 'canceled', 'read'
+    private String status;
 
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    // Getters and Setters
+    // Геттеры и сеттеры
 
     public Long getId() {
         return id;
@@ -62,14 +59,6 @@ public class Message {
 
     public void setIsAdminMessage(Boolean isAdminMessage) {
         this.isAdminMessage = isAdminMessage;
-    }
-
-    public Boolean getIsNotification() {
-        return isNotification;
-    }
-
-    public void setIsNotification(Boolean isNotification) {
-        this.isNotification = isNotification;
     }
 
     public String getStatus() {

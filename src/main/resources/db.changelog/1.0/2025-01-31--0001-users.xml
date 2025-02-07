@@ -22,9 +22,9 @@
                 <constraints nullable="false" unique="true"/>
             </column>
             <column name="phone_number" type="VARCHAR(20)"/>
-<!--            <column name="password_hash" type="VARCHAR(255)">-->
-<!--                <constraints nullable="false"/>-->
-<!--            </column>-->
+            <!--            <column name="password_hash" type="VARCHAR(255)">-->
+            <!--                <constraints nullable="false"/>-->
+            <!--            </column>-->
             <column name="avatar_url" type="VARCHAR(255)"/>
             <column name="role" type="VARCHAR(50)">
                 <constraints nullable="false"/>
