@@ -9,6 +9,7 @@ import com.example.bootcamp.repository.UserRepository;
 import com.example.bootcamp.repository.VolunteerCenterRepository;
 import com.example.bootcamp.service.UserService;
 import com.example.bootcamp.util.UserMapper;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -58,7 +59,6 @@ public class UserServiceImpl implements UserService {
         return UserMapper.convertToDto(userRepository.save(user));
     }
 
-
     @Override
     public UserDTO updateUser(Long id, UserDTO userDTO) {
         User user = userRepository.findById(id)
@@ -84,5 +84,27 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
+    }
+
+    //новый метод для получения части пользователей
+    @Override
+    public List<UserDTO> getUsers(int offset, int limit) {
+        //получаем всех пользователей - отсортированных по id
+        List<User> allUsers = userRepository.findAll(Sort.by("id"));
+        int total = allUsers.size();
+
+        //если offset больше или равен общему количеству пользователей - сбрасываем его в 0
+        if (offset >= total) {
+            offset = 0;
+        }
+
+        //вычисляем индекс последнего элемента (не превышает общее число)
+        int toIndex = Math.min(offset + limit, total);
+
+        //формируем подсписок и преобразуем в DTO
+        return allUsers.subList(offset, toIndex)
+                .stream()
+                .map(UserMapper::convertToDto)
+                .collect(Collectors.toList());
     }
 }

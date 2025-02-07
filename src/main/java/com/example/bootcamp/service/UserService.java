@@ -10,4 +10,7 @@ public interface UserService {
     UserDTO createUser(UserDTO userDTO);
     UserDTO updateUser(Long id, UserDTO userDTO);
     void deleteUser(Long id);
+
+    //новый метод для получения порции пользователей
+    List<UserDTO> getUsers(int offset, int limit);
 }
