@@ -26,7 +26,7 @@ public class VolunteerCenter {
     @OneToMany(mappedBy = "volunteerCenter")
     private List<User> users;
 
-    // Геттеры и сеттеры
+    //геттеры и сеттеры
 
     public Long getId() {
         return id;

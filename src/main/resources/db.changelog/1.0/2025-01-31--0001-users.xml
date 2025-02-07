@@ -15,7 +15,6 @@
             <column name="id" type="INTEGER" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <!-- Новые колонки для имени -->
             <column name="first_name" type="VARCHAR(100)">
                 <constraints nullable="false"/>
             </column>

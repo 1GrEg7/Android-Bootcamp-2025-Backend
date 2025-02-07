@@ -11,7 +11,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Новые поля для разделения имени
+    //новые поля для разделения имени
     @Column(name = "first_name")
     private String firstName;
 
@@ -40,7 +40,7 @@ public class User {
     @Column(name = "created_at")
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    // Геттеры и сеттеры
+    //геттеры и сеттеры
 
     public Long getId() {
         return id;
@@ -50,7 +50,7 @@ public class User {
         this.id = id;
     }
 
-    // firstName
+    //firstName
     public String getFirstName() {
         return firstName;
     }
@@ -59,7 +59,7 @@ public class User {
         this.firstName = firstName;
     }
 
-    // secondName
+    //secondName
     public String getSecondName() {
         return secondName;
     }
@@ -68,7 +68,7 @@ public class User {
         this.secondName = secondName;
     }
 
-    // email
+    //email
     public String getEmail() {
         return email;
     }
@@ -77,7 +77,7 @@ public class User {
         this.email = email;
     }
 
-    // phoneNumber
+    //phoneNumber
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -86,7 +86,7 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    // avatarUrl
+    //avatarUrl
     public String getAvatarUrl() {
         return avatarUrl;
     }
@@ -95,7 +95,7 @@ public class User {
         this.avatarUrl = avatarUrl;
     }
 
-    // role
+    //role
     public String getRole() {
         return role;
     }
@@ -104,7 +104,7 @@ public class User {
         this.role = role;
     }
 
-    // status
+    //status
     public String getStatus() {
         return status;
     }
@@ -113,7 +113,7 @@ public class User {
         this.status = status;
     }
 
-    // volunteerCenter
+    //volunteerCenter
     public VolunteerCenter getVolunteerCenter() {
         return volunteerCenter;
     }
@@ -122,7 +122,7 @@ public class User {
         this.volunteerCenter = volunteerCenter;
     }
 
-    // createdAt
+    //createdAt
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }

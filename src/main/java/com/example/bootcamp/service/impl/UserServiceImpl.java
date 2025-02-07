@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final VolunteerCenterRepository volunteerCenterRepository;
 
-    // Конструктор с инъекцией зависимостей
+    //конструктор с инъекцией зависимостей
     public UserServiceImpl(UserRepository userRepository, VolunteerCenterRepository volunteerCenterRepository) {
         this.userRepository = userRepository;
         this.volunteerCenterRepository = volunteerCenterRepository;
@@ -57,6 +57,7 @@ public class UserServiceImpl implements UserService {
 
         return UserMapper.convertToDto(userRepository.save(user));
     }
+
 
     @Override
     public UserDTO updateUser(Long id, UserDTO userDTO) {

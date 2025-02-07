@@ -1,6 +1,7 @@
 package com.example.bootcamp.dto;
 
 import com.example.bootcamp.entity.VolunteerCenter;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class UserDTO {
 
@@ -12,97 +13,92 @@ public class UserDTO {
     private String avatarUrl;
     private String role;
     private String status;
+
+    //это поле используется при создании/обновлении (приеме данных)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Long volunteerCenterId;
-    private VolunteerCenter volunteerCenter;
 
-    // Геттеры и сеттеры
+    //это поле будет выводиться (только для чтения) и содержит название центра
+    @JsonProperty(value = "volunteerCenter", access = JsonProperty.Access.READ_ONLY)
+    private String volunteerCenter;
 
+    //геттеры и сеттеры
     public long getId() {
         return id;
     }
-
     public void setId(long id) {
         this.id = id;
     }
 
-    // firstName
+    //firstName
     public String getFirstName() {
         return firstName;
     }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    // secondName
+    //secondName
     public String getSecondName() {
         return secondName;
     }
-
     public void setSecondName(String secondName) {
         this.secondName = secondName;
     }
 
-    // email
+    //email
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
 
-    // phoneNumber
+    //phoneNumber
     public String getPhoneNumber() {
         return phoneNumber;
     }
-
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    // avatarUrl
+    //avatarUrl
     public String getAvatarUrl() {
         return avatarUrl;
     }
-
     public void setAvatarUrl(String avatarUrl) {
         this.avatarUrl = avatarUrl;
     }
 
-    // role
+    //role
     public String getRole() {
         return role;
     }
-
     public void setRole(String role) {
         this.role = role;
     }
 
-    // status
+    //status
     public String getStatus() {
         return status;
     }
-
     public void setStatus(String status) {
         this.status = status;
     }
 
-    // volunteerCenterId
+    //volunteerCenterId (для входящих данных)
     public Long getVolunteerCenterId() {
         return volunteerCenterId;
     }
-
     public void setVolunteerCenterId(Long volunteerCenterId) {
         this.volunteerCenterId = volunteerCenterId;
     }
 
-    // volunteerCenter
-    public VolunteerCenter getVolunteerCenter() {
+    //volunteerCenter (выводится название центра)
+    public String getVolunteerCenter() {
         return volunteerCenter;
     }
-
-    public void setVolunteerCenter(VolunteerCenter volunteerCenter) {
+    public void setVolunteerCenter(String volunteerCenter) {
         this.volunteerCenter = volunteerCenter;
     }
 }
