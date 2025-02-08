@@ -24,6 +24,7 @@ public class UserDTO {
     private Integer age;
     private Integer experience;
     private String description;
+    private Integer rating;
 
     //геттеры и сеттеры
 
@@ -125,5 +126,12 @@ public class UserDTO {
     }
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Integer getRating() {
+        return rating;
+    }
+    public void setRating(Integer rating) {
+        this.rating = rating;
     }
 }

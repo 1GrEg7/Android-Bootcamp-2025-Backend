@@ -49,6 +49,9 @@ public class User {
     @Column(name = "description", length = 255)
     private String description;
 
+    @Column(name = "rating")
+    private Integer rating;
+
     //геттеры и сеттеры
 
     public Long getId() {
@@ -159,5 +162,13 @@ public class User {
     }
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Integer getRating() {
+        return rating;
+    }
+
+    public void setRating(Integer rating) {
+        this.rating = rating;
     }
 }

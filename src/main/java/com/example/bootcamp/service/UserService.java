@@ -13,4 +13,10 @@ public interface UserService {
 
     //новый метод для получения порции пользователей
     List<UserDTO> getUsers(int offset, int limit);
+
+    //новый метод для обновления рейтинга
+    UserDTO updateUserRating(Long id, Double rating);
+
+    //новый метод для получения рейтинга
+    Double getUserRating(Long id);
 }

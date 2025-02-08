@@ -60,6 +60,7 @@ public class UserServiceImpl implements UserService {
         user.setAge(userDTO.getAge());
         user.setExperience(userDTO.getExperience());
         user.setDescription(userDTO.getDescription());
+        user.setRating(userDTO.getRating());
 
         return UserMapper.convertToDto(userRepository.save(user));
     }
@@ -81,6 +82,10 @@ public class UserServiceImpl implements UserService {
         user.setAge(userDTO.getAge());
         user.setExperience(userDTO.getExperience());
         user.setDescription(userDTO.getDescription());
+
+        if (userDTO.getRating() != null) {
+            user.setRating(userDTO.getRating());
+        }
 
         if (userDTO.getVolunteerCenterId() != null) {
             VolunteerCenter volunteerCenter = volunteerCenterRepository.findById(userDTO.getVolunteerCenterId())
@@ -117,4 +122,22 @@ public class UserServiceImpl implements UserService {
                 .map(UserMapper::convertToDto)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public UserDTO updateUserRating(Long id, Double rating) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new UserNotFoundException("User not found!"));
+        user.setRating(rating.intValue()); // Преобразование Double в Integer
+        return UserMapper.convertToDto(userRepository.save(user));
+    }
+
+
+    //новый метод для получения рейтинга
+    @Override
+    public Double getUserRating(Long id) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new UserNotFoundException("User not found!"));
+        return user.getRating().doubleValue(); // Преобразуем Integer в Double
+    }
+
 }

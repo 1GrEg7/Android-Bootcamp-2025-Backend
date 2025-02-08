@@ -37,6 +37,7 @@
             <column name="age" type="INTEGER"/>
             <column name="experience" type="INTEGER"/>
             <column name="description" type="VARCHAR(255)"/>
+            <column name="rating" type="INTEGER"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>

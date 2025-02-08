@@ -57,4 +57,15 @@ public class UserController {
         userService.deleteUser(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping("/{id}/rating")
+    public ResponseEntity<UserDTO> updateUserRating(@PathVariable long id, @RequestParam Double rating) {
+        return ResponseEntity.ok(userService.updateUserRating(id, rating));
+    }
+
+    //новый эндпоинт для получения рейтинга
+    @GetMapping("/{id}/rating")
+    public ResponseEntity<Double> getUserRating(@PathVariable long id) {
+        return ResponseEntity.ok(userService.getUserRating(id));
+    }
 }

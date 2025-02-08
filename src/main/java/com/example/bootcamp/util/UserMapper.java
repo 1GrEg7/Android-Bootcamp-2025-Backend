@@ -24,6 +24,7 @@ public class UserMapper {
         dto.setAge(user.getAge());
         dto.setExperience(user.getExperience());
         dto.setDescription(user.getDescription());
+        dto.setRating(user.getRating());
         return dto;
     }
 }
