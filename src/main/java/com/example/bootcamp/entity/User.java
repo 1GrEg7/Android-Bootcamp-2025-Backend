@@ -1,7 +1,13 @@
 package com.example.bootcamp.entity;
 
+//import org.springframework.security.core.GrantedAuthority;
+//import org.springframework.security.core.authority.SimpleGrantedAuthority;
+//import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.Collections;
 
 @Entity
 @Table(name = "users")
@@ -11,7 +17,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //новые поля для разделения имени
     @Column(name = "first_name")
     private String firstName;
 
@@ -52,7 +57,14 @@ public class User {
     @Column(name = "rating")
     private Integer rating;
 
-    //геттеры и сеттеры
+    @Column(name = "password")
+    private String password;
+
+    // Новый поля для пользователя
+    @Column(name = "username")
+    private String username;
+
+    // Геттеры и сеттеры
 
     public Long getId() {
         return id;
@@ -62,7 +74,6 @@ public class User {
         this.id = id;
     }
 
-    //firstName
     public String getFirstName() {
         return firstName;
     }
@@ -71,7 +82,6 @@ public class User {
         this.firstName = firstName;
     }
 
-    //secondName
     public String getSecondName() {
         return secondName;
     }
@@ -80,7 +90,6 @@ public class User {
         this.secondName = secondName;
     }
 
-    //email
     public String getEmail() {
         return email;
     }
@@ -89,7 +98,6 @@ public class User {
         this.email = email;
     }
 
-    //phoneNumber
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -98,7 +106,6 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    //avatarUrl
     public String getAvatarUrl() {
         return avatarUrl;
     }
@@ -107,7 +114,6 @@ public class User {
         this.avatarUrl = avatarUrl;
     }
 
-    //role
     public String getRole() {
         return role;
     }
@@ -116,7 +122,6 @@ public class User {
         this.role = role;
     }
 
-    //status
     public String getStatus() {
         return status;
     }
@@ -125,7 +130,6 @@ public class User {
         this.status = status;
     }
 
-    //volunteerCenter
     public VolunteerCenter getVolunteerCenter() {
         return volunteerCenter;
     }
@@ -134,7 +138,6 @@ public class User {
         this.volunteerCenter = volunteerCenter;
     }
 
-    //createdAt
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
@@ -146,6 +149,7 @@ public class User {
     public Integer getAge() {
         return age;
     }
+
     public void setAge(Integer age) {
         this.age = age;
     }
@@ -153,6 +157,7 @@ public class User {
     public Integer getExperience() {
         return experience;
     }
+
     public void setExperience(Integer experience) {
         this.experience = experience;
     }
@@ -160,6 +165,7 @@ public class User {
     public String getDescription() {
         return description;
     }
+
     public void setDescription(String description) {
         this.description = description;
     }
@@ -170,5 +176,23 @@ public class User {
 
     public void setRating(Integer rating) {
         this.rating = rating;
+    }
+
+    // password
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    // username (геттер и сеттер)
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

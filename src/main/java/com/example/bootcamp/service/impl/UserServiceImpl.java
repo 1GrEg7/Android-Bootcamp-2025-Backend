@@ -9,7 +9,10 @@ import com.example.bootcamp.repository.UserRepository;
 import com.example.bootcamp.repository.VolunteerCenterRepository;
 import com.example.bootcamp.service.UserService;
 import com.example.bootcamp.util.UserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+//import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +20,6 @@ import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
-
     private final UserRepository userRepository;
     private final VolunteerCenterRepository volunteerCenterRepository;
 
@@ -61,6 +63,7 @@ public class UserServiceImpl implements UserService {
         user.setExperience(userDTO.getExperience());
         user.setDescription(userDTO.getDescription());
         user.setRating(userDTO.getRating());
+//        user.setPassword(userDTO.getPassword());
 
         return UserMapper.convertToDto(userRepository.save(user));
     }
@@ -130,7 +133,6 @@ public class UserServiceImpl implements UserService {
         user.setRating(rating.intValue()); // Преобразование Double в Integer
         return UserMapper.convertToDto(userRepository.save(user));
     }
-
 
     //новый метод для получения рейтинга
     @Override

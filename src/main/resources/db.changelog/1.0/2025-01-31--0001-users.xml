@@ -38,6 +38,12 @@
             <column name="experience" type="INTEGER"/>
             <column name="description" type="VARCHAR(255)"/>
             <column name="rating" type="INTEGER"/>
+            <column name="password" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="username" type="VARCHAR(100)">
+                <constraints unique="true" nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
 </databaseChangeLog>

@@ -1,8 +1,8 @@
-id;first_name;second_name;email;phone_number;volunteer_center_id;role;status;created_at;avatar_url;age;experience;description;rating
-1;"Иван";"Иванов";"ivan@example.com";"+79001112233";1;"USER";"active";2025-01-01 09:00:00;"https://example.com/avatars/ivan.jpg";20;21;"aaaa";5
-2;"Мария";"Петрова";"maria@example.com";"+79004445566";2;"USER";"active";2025-01-02 10:00:00;"https://example.com/avatars/ivan.jpg";30;31;"bbbb";4
-3;"Алексей";"Сидоров";"alexey@example.com";"+79007778899";3;"USER";"active";2025-01-03 11:00:00;"https://example.com/avatars/ivan.jpg";40;41;"cccc";3
-4;"Даня";"Сидоров";"danya@example.com";"+79001234567";4;"USER";"active";2025-01-03 12:00:00;"https://example.com/avatars/ivan.jpg";50;51;"dddd";2
-5;"Игорь";"Месси";"igor@example.com";"+79009876543";5;"USER";"active";2025-01-04 01:00:00;"https://example.com/avatars/ivan.jpg";60;61;"eeee";1
-6;"Семен";"Роналду";"semen@example.com";"+79029476543";5;"USER";"inactive";2025-01-07 05:30:00;"https://example.com/avatars/ivan.jpg";70;71;"ffff";4
-7;"Валентин";"Джанлуиджи";"valya@example.com";"+79705874343";5;"USER";"inactive";2025-01-07 02:00:00;"https://example.com/avatars/ivan.jpg";80;81;hhhh";5
+id;first_name;second_name;email;phone_number;volunteer_center_id;role;status;created_at;avatar_url;age;experience;description;rating;username;password
+1;"Иван";"Иванов";"ivan@example.com";"+79001112233";1;"USER";"active";2025-01-01 09:00:00;"https://example.com/avatars/ivan.jpg";20;21;"aaaa";5;daniilgold;YWRtaW4xMDAw
+2;"Мария";"Петрова";"maria@example.com";"+79004445566";2;"USER";"active";2025-01-02 10:00:00;"https://example.com/avatars/ivan.jpg";30;31;"bbbb";4;secondgold;YWRtaW4xMDAx
+3;"Алексей";"Сидоров";"alexey@example.com";"+79007778899";3;"USER";"active";2025-01-03 11:00:00;"https://example.com/avatars/ivan.jpg";40;41;"cccc";3;thirdgold;YWRtaW4xMDEw
+4;"Даня";"Сидоров";"danya@example.com";"+79001234567";4;"USER";"active";2025-01-03 12:00:00;"https://example.com/avatars/ivan.jpg";50;51;"dddd";2;fourgold;YWRtaW4xMTAw
+5;"Игорь";"Месси";"igor@example.com";"+79009876543";5;"USER";"active";2025-01-04 01:00:00;"https://example.com/avatars/ivan.jpg";60;61;"eeee";1;fivegold;YWRtaW4xMTAx
+6;"Семен";"Роналду";"semen@example.com";"+79029476543";5;"USER";"inactive";2025-01-07 05:30:00;"https://example.com/avatars/ivan.jpg";70;71;"ffff";4;sixgold;YWRtaW4xMTEw
+7;"Валентин";"Джанлуиджи";"valya@example.com";"+79705874343";5;"USER";"inactive";2025-01-07 02:00:00;"https://example.com/avatars/ivan.jpg";80;81;hhhh";5;sevengold;YWRtaW4xMTEx

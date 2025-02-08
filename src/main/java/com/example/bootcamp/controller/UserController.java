@@ -68,4 +68,5 @@ public class UserController {
     public ResponseEntity<Double> getUserRating(@PathVariable long id) {
         return ResponseEntity.ok(userService.getUserRating(id));
     }
+
 }
